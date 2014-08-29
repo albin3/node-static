@@ -2,12 +2,13 @@
   "name": "longyu_static",
   "version": "0.0.0",
   "description": "static server for longyu86",
-  "main": "static_longyu.js",
+  "main": "static_server.js",
   "directories": {
     "man": "man"
   },
   "dependencies": {
-    mocha : "*"
+    "mocha": "*",
+    "formidable": "*"
   },
   "scripts": {
     "test": "mocha"
