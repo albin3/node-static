@@ -1,0 +1,26 @@
+{
+  "name": "longyu_static",
+  "version": "0.0.0",
+  "description": "static server for longyu86",
+  "main": "static_longyu.js",
+  "directories": {
+    "man": "man"
+  },
+  "dependencies": {
+    mocha : "*"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "developer@louding.com:repo/Longyu86/longyu_staticserver.git"
+  },
+  "keywords": [
+    "static",
+    "server",
+    "upload"
+  ],
+  "author": "Albin.",
+  "license": "MIT"
+}
