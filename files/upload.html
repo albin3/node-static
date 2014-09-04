@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta http-equiv="Access-Control-Allow-Origin" content="http://louding.com:3015">
+  <title>upload</title>
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://malsup.github.com/jquery.form.js"></script>
+</head>
+<body>
+  <!--
+  <form role="form" method="post" action="http://louding.com:3015/pub" enctype="multipart/form-data">
+    <input type="file" name="fileA" multiple="multiple">
+    <input type="text" name="s1" style="display: none" value="1">
+    <input type="text" name="s2" style="display: none" value="2">
+    <input type="text" name="s3" style="display: none" value="3">
+    <input type="submit">
+  </form>
+  -->
+<form id="myForm" action="http://louding.com:3015" method="post" enctype="multipart/form-data">
+    <input type="text" style="display: none" name="store" value="jflef">
+    <input type="file" size="60" name="myfile">
+    <input type="submit" value="Ajax File Upload">
+</form>
+<div id="progress">
+     <div id="bar"></div>
+     <div id="percent">0%</div >
+</div>
+<br/>
+<div id="message"></div>
+
+</body>
+<script>
+  $(document).ready(function()
+  {
+    var options = { 
+    beforeSend: function() 
+    {
+        $("#progress").show();
+        //clear everything
+        $("#bar").width('0%');
+        $("#message").html("");
+        $("#percent").html("0%");
+    },
+    uploadProgress: function(event, position, total, percentComplete) 
+    {
+        $("#bar").width(percentComplete+'%');
+        $("#percent").html(percentComplete+'%');
+    },
+    success: function() 
+    {
+        $("#bar").width('100%');
+        $("#percent").html('100%');
+    },
+    complete: function(response) 
+    {
+        $("#message").html("<font color='green'>"+response.responseText+"</font>");
+    },
+    error: function()
+    {
+        $("#message").html("<font color='red'> ERROR: unable to upload files</font>");
+    }
+  }; 
+     $("#myForm").ajaxForm(options);
+  }); 
+</script>
+</html>
